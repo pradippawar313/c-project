@@ -1,7 +1,9 @@
 pipeline {
     agent none 
     stages{
-        agent { label: 'master'}
+    
+        agent { label 'master'}
+        
         stage('BUILD') {
             steps{
                  sh '''
@@ -12,7 +14,9 @@ pipeline {
         }
 
         stage('TEST') {
-            agent { label: 'c-project-node1'}
+        
+            agent { label 'c-project-node1'}
+            
             steps{
                 sh '''
                     sleep 6
@@ -22,7 +26,9 @@ pipeline {
         }
 
         stage('DEPLOY') {
-            agent { label: 'c-project-node2'}
+        
+            agent { label 'c-project-node2'}
+            
             steps{
                 sh '''
                     sleep 9
